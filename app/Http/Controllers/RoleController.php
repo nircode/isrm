@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use Illuminate\Support\Facades\Input;
-
+use Illuminate\Validation\Rule;
 use Validator;
 
 class RoleController extends Controller
@@ -39,10 +39,10 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
         //
-        $validation = Validator::make(Input::all(), Role::$rules);
+        //$validation = Validator::make(Input::all(), Role::$rules);
 
         if($validation->passes()) {
             $role = new Role;
@@ -68,11 +68,13 @@ class RoleController extends Controller
     public function show($id)
     {
         //
-        $role = Role::find($id);
+        /* $role = Role::find($id);
         if($role)
             return view('roles.view',['role' => $role]);
         else
-            return redirect('roles')->with('failure', 'Requested record was not found.');
+            return redirect('roles')->with('failure', 'Requested record was not found.'); */
+      //  return redirect('roles/edit/', $id);
+      return redirect('roles');
     }
 
     /**
@@ -100,22 +102,25 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validation = Validator::make(Input::all(), [
-                'name' => 'required|min:5|max:200|unique:roles,' . $id,
-                'desc' => 'max:200',
-            ]);
+      if(Role::find($id)) {
+        $role = Role::find($id);
+      //  $rules = Role::$rules;
+      //  $rules['name'] = 'required|min:5|max:200|unique:roles,name,'.$id;
+        //print_r($rules);
+        $validation = Validator::make(Input::all(), [Role::$rules, Rule::unique('name')->ignore($id)]);
         if($validation->passes()) {
-            $role = new Role;
-            $role->name = Input::get('name');
+          echo "Validate";
+          /*  $role->name = Input::get('name');
             $role->desc = Input::get('desc');
             if($role->save())
                 return redirect('roles')->with('success', 'Role created successfully');
             else
-                return redirect('roles')->with('failure', 'Role created successfully');
+                return redirect('roles')->with('failure', 'Role created successfully'); */
         } else {
             return redirect('roles')->withErrors($validation);
             exit;
         }
+      }
     }
 
     /**

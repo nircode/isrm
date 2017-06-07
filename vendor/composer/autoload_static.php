@@ -15,6 +15,7 @@ class ComposerStaticInit53991635776c1b9f959b5398b8068364
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -76,6 +77,7 @@ class ComposerStaticInit53991635776c1b9f959b5398b8068364
         ),
         'I' => 
         array (
+            'Illuminate\\Html\\' => 16,
             'Illuminate\\' => 11,
         ),
         'F' => 
@@ -206,6 +208,10 @@ class ComposerStaticInit53991635776c1b9f959b5398b8068364
         array (
             0 => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src',
         ),
+        'Illuminate\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/html',
+        ),
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
@@ -280,28 +286,55 @@ class ComposerStaticInit53991635776c1b9f959b5398b8068364
     );
 
     public static $classMap = array (
+        'App\\Asset' => __DIR__ . '/../..' . '/app/Asset.php',
+        'App\\Config' => __DIR__ . '/../..' . '/app/Config.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Control' => __DIR__ . '/../..' . '/app/Control.php',
+        'App\\Document' => __DIR__ . '/../..' . '/app/Document.php',
+        'App\\Evidence' => __DIR__ . '/../..' . '/app/Evidence.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Incident' => __DIR__ . '/../..' . '/app/Incident.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
+        'App\\Template' => __DIR__ . '/../..' . '/app/Template.php',
+        'App\\Threat' => __DIR__ . '/../..' . '/app/Threat.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+        'CreateAssetIncident' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_131941_create_asset_incident.php',
+        'CreateAssetsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_101030_create_assets_table.php',
+        'CreateChildParent' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_132433_create_child_parent.php',
+        'CreateConfigsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_100814_create_configs_table.php',
+        'CreateControlDocument' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_132037_create_control_document.php',
+        'CreateControlEvidence' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_131924_create_control_evidence.php',
+        'CreateControlThreat' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_131958_create_control_threat.php',
+        'CreateControlsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_100918_create_controls_table.php',
+        'CreateDocumentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_100900_create_documents_table.php',
+        'CreateEvidencesTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_100844_create_evidences_table.php',
+        'CreateIncidentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_100908_create_incidents_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreateRoleUser' => __DIR__ . '/../..' . '/database/migrations/2017_05_24_121035_create_role_user.php',
+        'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_100826_create_roles_table.php',
+        'CreateTemplateThreat' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_132015_create_template_threat.php',
+        'CreateTemplatesTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_101016_create_templates_table.php',
+        'CreateThreatsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_23_101004_create_threats_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
@@ -1217,6 +1250,11 @@ class ComposerStaticInit53991635776c1b9f959b5398b8068364
         'Illuminate\\Foundation\\Validation\\ValidatesRequests' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php',
         'Illuminate\\Hashing\\BcryptHasher' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Hashing/BcryptHasher.php',
         'Illuminate\\Hashing\\HashServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Hashing/HashServiceProvider.php',
+        'Illuminate\\Html\\FormBuilder' => __DIR__ . '/..' . '/illuminate/html/FormBuilder.php',
+        'Illuminate\\Html\\FormFacade' => __DIR__ . '/..' . '/illuminate/html/FormFacade.php',
+        'Illuminate\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/illuminate/html/HtmlBuilder.php',
+        'Illuminate\\Html\\HtmlFacade' => __DIR__ . '/..' . '/illuminate/html/HtmlFacade.php',
+        'Illuminate\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/illuminate/html/HtmlServiceProvider.php',
         'Illuminate\\Http\\Concerns\\InteractsWithContentTypes' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithContentTypes.php',
         'Illuminate\\Http\\Concerns\\InteractsWithFlashData' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithFlashData.php',
         'Illuminate\\Http\\Concerns\\InteractsWithInput' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithInput.php',

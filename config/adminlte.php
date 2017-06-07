@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'collapse_sidebar' => true,
+    'collapse_sidebar' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -216,7 +216,7 @@ return [
         [
             'text'    => 'Calendar',
             'url'     => '#',
-            'icon'    => 'calendar',  
+            'icon'    => 'calendar',
         ],
         [
             'text'    => 'Performance',

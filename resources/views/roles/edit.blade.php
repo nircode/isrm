@@ -13,8 +13,9 @@
             <div class="box-header with border">
               <h3> Edit Role</h3>
             </div>
-            
-            <form class="form-horizontal" method="post" action="{{ URL::to('roles') }}">
+
+            <form class="form-horizontal" method="post" action="{{ url('roles', $role->id) }}">
+              {{ method_field('PUT') }}
               {{ csrf_field() }}
               <div class='box-body'>
               <div class='form-group'>
@@ -34,9 +35,9 @@
                   <input type="submit" class="btn btn-info pull-right" id="submit" name="submit" Value="Submit">
               </div>
               </div>
-            </form>
+
+             </form>
           </div>
         </div>
     </div>
 @stop
-
