@@ -13,22 +13,28 @@
             <div class="box-header with border">
               <h3> Add Role</h3>
             </div>
-            
+
             <form class="form-horizontal" method="post" action="{{ URL::to('roles') }}">
               {{ csrf_field() }}
               <div class='box-body'>
-              <div class='form-group'>
-                <label for="name" class="col-md-2 control-label">Name</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                <div class='form-group {{ $errors->has('name') ? 'has-error' : '' }}'>
+                  <label for="name" class="col-md-2 control-label">Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" name="name" value="{{ isset($input->post) ? $input->post('name') : '' }}">
+                    @if($errors->has('name'))
+                      <span class="help-block">{{ $errors->first('name') }}</span>
+                    @endif
+                  </div>
                 </div>
-              </div>
-              <div class='form-group'>
-                <label for="desc" class="col-md-2 control-label">Description</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="desc" name="desc" placeholder="Description">
+                <div class='form-group {{ $errors->has('desc') ? 'has-error' : '' }}'>
+                  <label for="desc" class="col-md-2 control-label">Description</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="desc" name="desc" value="{{ isset($input->post) ? $input->post('desc') : '' }}">
+                    @if($errors->has('desc'))
+                      <span class="help-block">{{ $errors->first('desc') }}</span>
+                    @endif
+                  </div>
                 </div>
-              </div>
               <div class='box-footer'>
                   <input type="submit" class="btn btn-default" id="submit" Value="Cancel" onClick="javascript:back()">
                   <input type="submit" class="btn btn-info pull-right" id="submit" name="submit" Value="Submit">
@@ -39,4 +45,3 @@
         </div>
     </div>
 @stop
-

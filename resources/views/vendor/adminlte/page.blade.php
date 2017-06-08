@@ -16,7 +16,7 @@
 @section('body')
 
     <!-- message print -->
-    @if(session('success') || session('failure') || $errors->all())
+  <!--  @if(session('success') || session('failure') || $errors->all())
             @if(session('success'))
                 <div class="alert alert-success alert-dismissible" style="margin-bottom: 0px;">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="hidden">x</button>
@@ -37,6 +37,13 @@
                     </ul>
                 </div>
             @endif
+    @endif -->
+
+    @if(session('success'))
+      <div class="alert alert-success alert-dismissible" style="margin-bottom: 0px;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="hidden">x</button>
+        <h4> {{ session('success') }} </h4>
+      </div>
     @endif
     <!-- /. message print -->
 

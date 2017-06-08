@@ -13,8 +13,8 @@
           		<div class="box-header">
               		<h3 class="box-title">Active Roles</h3>
               		<hr>
-              		<!-- <a href="{{ url('/roles/create') }}" class="btn btn-default">Create Role</a> -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRole">
+              	 <a href="{{ url('/roles/create') }}" class="btn btn-default">Create Role</a>
+                  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRole"> -->
                       Create Role
                   </button>
             	</div>
@@ -62,18 +62,24 @@
               {{ csrf_field() }}
         <div class="modal-body">
           <div class='box-body'>
-            <div class='form-group'>
+            <div class='form-group {{ $errors->has('name') ? 'has-error' : '' }}'>
               <label for="name" class="col-md-2 control-label">Name</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                </div>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name="name" value="{{ isset($input->post) ? $input->post('name') : '' }}">
+                @if($errors->has('name'))
+                  <span class="help-block">{{ $errors->first('name') }}</span>
+                @endif
               </div>
-              <div class='form-group'>
-                <label for="desc" class="col-md-2 control-label">Description</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="desc" name="desc" placeholder="Description">
-                </div>
+            </div>
+            <div class='form-group {{ $errors->has('desc') ? 'has-error' : '' }}'>
+              <label for="desc" class="col-md-2 control-label">Description</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="desc" name="desc" value="{{ isset($input->post) ? $input->post('desc') : '' }}">
+                @if($errors->has('desc'))
+                  <span class="help-block">{{ $errors->first('desc') }}</span>
+                @endif
               </div>
+            </div>
           </div>
         </div>
         <div class="modal-footer">

@@ -18,16 +18,22 @@
               {{ method_field('PUT') }}
               {{ csrf_field() }}
               <div class='box-body'>
-              <div class='form-group'>
+              <div class='form-group {{ $errors->has('name') ? 'has-error' : '' }}'>
                 <label for="name" class="col-md-2 control-label">Name</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" name="name" value="{{ $role->name }}">
+                  @if($errors->has('name'))
+                    <span class="help-block">{{ $errors->first('name') }}</span>
+                  @endif
                 </div>
               </div>
-              <div class='form-group'>
+              <div class='form-group {{ $errors->has('desc') ? 'has-error' : '' }}'>
                 <label for="desc" class="col-md-2 control-label">Description</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="desc" name="desc" value="{{ $role->desc }}">
+                  @if($errors->has('desc'))
+                    <span class="help-block">{{ $errors->first('desc') }}</span>
+                  @endif
                 </div>
               </div>
               <div class='box-footer'>

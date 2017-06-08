@@ -7,6 +7,7 @@ use App\Role;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Validation\Rule;
 use Validator;
+use App\Http\Requests\RoleRequest;
 
 class RoleController extends Controller
 {
@@ -100,7 +101,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
       if(Role::find($id)) {
         $role = Role::find($id);
