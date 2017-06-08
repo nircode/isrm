@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class RoleRequest extends FormRequest
 {
     /**
@@ -23,12 +24,15 @@ class RoleRequest extends FormRequest
      */
     public function rules()
     {
-        $id = isset($this->post) ? $this->post->id : null;
+        
+        $id = isset($this->role) ? $this->role->id : null;
         $rules = [
-          'name' => 'required|min:5|max:200|unique:roles,name' . $id,
+          'name' => "required|min:5|max:200|unique:roles,name," . $id,
           'desc' => 'max:200',
         ];
 
         return $rules;
+
     }
 }
+

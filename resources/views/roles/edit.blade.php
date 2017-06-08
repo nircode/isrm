@@ -17,6 +17,7 @@
             <form class="form-horizontal" method="post" action="{{ url('roles', $role->id) }}">
               {{ method_field('PUT') }}
               {{ csrf_field() }}
+              
               <div class='box-body'>
               <div class='form-group {{ $errors->has('name') ? 'has-error' : '' }}'>
                 <label for="name" class="col-md-2 control-label">Name</label>

@@ -44,20 +44,14 @@ class RoleController extends Controller
     {
         //
         //$validation = Validator::make(Input::all(), Role::$rules);
+        $role = new Role;
+        $role->name = Input::get('name');
+        $role->desc = Input::get('desc');
 
-        if($validation->passes()) {
-            $role = new Role;
-            $role->name = Input::get('name');
-            $role->desc = Input::get('desc');
-            if($role->save())
-                return redirect('roles')->with('success', 'Role created successfully');
-            else
-                return redirect('roles')->with('failure', 'Role created successfully');
-        } else {
-            return redirect('roles')->withErrors($validation);
-            exit;
-        }
-
+        if($role->save())
+            return redirect('roles')->with('success', 'Role created successfully');
+        else
+            return redirect('roles')->with('failure', 'Cannot create the role');
     }
 
     /**
@@ -68,14 +62,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
-        /* $role = Role::find($id);
-        if($role)
-            return view('roles.view',['role' => $role]);
-        else
-            return redirect('roles')->with('failure', 'Requested record was not found.'); */
-      //  return redirect('roles/edit/', $id);
-      return redirect('roles');
+      return redirect('roles/' . $id . '/edit');
     }
 
     /**
@@ -101,28 +88,20 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RoleRequest $request, $id)
+    public function update(RoleRequest $request, Role $role)
     {
-      if(Role::find($id)) {
-        $role = Role::find($id);
-      //  $rules = Role::$rules;
-      //  $rules['name'] = 'required|min:5|max:200|unique:roles,name,'.$id;
-        //print_r($rules);
-        $validation = Validator::make(Input::all(), [Role::$rules, Rule::unique('name')->ignore($id)]);
-        if($validation->passes()) {
-          echo "Validate";
-          /*  $role->name = Input::get('name');
-            $role->desc = Input::get('desc');
-            if($role->save())
-                return redirect('roles')->with('success', 'Role created successfully');
+        /*$this->validate($request, [
+                'name' => 'required|min:5|max:200|unique:roles,name,' . $id,
+                'desc' => 'max:200',
+            ]);*/
+           
+            //$role = Role::find($id);
+            if($role->update($request->all()))
+                return redirect('roles')->with('success', 'Role updated successfully');
             else
-                return redirect('roles')->with('failure', 'Role created successfully'); */
-        } else {
-            return redirect('roles')->withErrors($validation);
-            exit;
-        }
-      }
-    }
+                return redirect('roles')->with('failure', 'Cannot update the role');
+      
+    } 
 
     /**
      * Remove the specified resource from storage.
@@ -133,5 +112,6 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+        
     }
 }
