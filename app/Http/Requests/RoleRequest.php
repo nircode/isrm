@@ -23,7 +23,8 @@ class RoleRequest extends FormRequest
      */
     public function rules()
     {
-        $id = isset($this->post) ? $this->post->id : null;
+        //$id = isset($this->post) ? $this->post->id : null;
+        $id = isset(Input::all()) ? Input::all('id') : null;
         $rules = [
           'name' => 'required|min:5|max:200|unique:roles,name' . $id,
           'desc' => 'max:200',

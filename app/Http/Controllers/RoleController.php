@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Validation\Rule;
 use Validator;
 use App\Http\Requests\RoleRequest;
 
@@ -101,14 +100,15 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RoleRequest $request, $id)
+    public function update(Request $request, $id)
     {
       if(Role::find($id)) {
-        $role = Role::find($id);
+        //$role = Role::find($id);
+        //print_r(Input::->post);
       //  $rules = Role::$rules;
       //  $rules['name'] = 'required|min:5|max:200|unique:roles,name,'.$id;
         //print_r($rules);
-        $validation = Validator::make(Input::all(), [Role::$rules, Rule::unique('name')->ignore($id)]);
+        $validation = Validator::make(Input::all(), Role::$rules);
         if($validation->passes()) {
           echo "Validate";
           /*  $role->name = Input::get('name');
